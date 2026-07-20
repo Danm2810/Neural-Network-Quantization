@@ -51,18 +51,6 @@ The implementation follows a weight-only variant of [DoReFa-Net](https://arxiv.o
 
 **Architecture**: `SimpleCNN`, two `QuantizableConv2d` blocks (3→32→64, 3×3 kernels) + max pooling + two FC layers (128 hidden, 10 out). ~545K parameters, all subject to the target bitwidth. Trained with Adam (lr=1e-3), batch size 128, cross-entropy loss, for 5 epochs.
 
-## How to reproduce
-
-**Locally:**
-
-```bash
-git clone https://github.com/<your-username>/<your-repo>.git
-cd <your-repo>
-pip install torch torchvision numpy matplotlib pandas tqdm
-jupyter notebook Neural_Network_Quantization.ipynb
-```
-
-**In Colab:** open `Neural_Network_Quantization.ipynb` in [Google Colab](https://colab.research.google.com/) and select a GPU runtime (Runtime → Change runtime type → GPU). CIFAR-10 training benefits noticeably from GPU; MNIST runs fine on CPU.
 
 Data is downloaded automatically by `torchvision.datasets` — no manual download step. Full run time on a T4 GPU is roughly 5–10 minutes for all eight configurations (4 bitwidths × 2 datasets × 5 epochs).
 
@@ -77,7 +65,7 @@ pandas
 tqdm
 ```
 
-## Reading the paper
+## The Paper
 
 The paper is included as `nn_quantizations.pdf`. It covers:
 
